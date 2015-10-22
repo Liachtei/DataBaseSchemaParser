@@ -31,7 +31,7 @@ static std::string type(const Schema::Relation::Attribute& attr) {
 //TODO: Add indexes
 std::string Schema::toString() const {
    std::stringstream out;
-   out << "RELATION:" << std::endl;
+   out << "RELATIONS:" << std::endl;
    for (const Schema::Relation& rel : relations) {
       out << rel.name << std::endl;
       out << "\tPrimary Key:";
