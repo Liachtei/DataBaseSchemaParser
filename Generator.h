@@ -8,10 +8,23 @@
 #ifndef GENERATOR_H_
 #define GENERATOR_H_
 
+#include <string>
+#include "Schema.hpp"
+#include <sstream>
+#include <memory>
+
+
 class Generator {
 public:
-	Generator();
+	Generator(Schema& schema, std::string outputFileName);
 	virtual ~Generator();
+
+private:
+	std::string outputFileName;
+	Schema schema;
+	void generateFile();
+	std::string generateAttributes(Schema::Relation& relation);
+
 };
 
 #endif /* GENERATOR_H_ */

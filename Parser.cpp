@@ -106,7 +106,9 @@ void Parser::nextToken(unsigned line, const std::string& token,
 	case State::Table:
 		if (isIdentifier(tok)) {
 			state = State::TableName;
-			schema.relations.push_back(Schema::Relation(token));
+			//remove "
+			tok.erase(std::remove(tok.begin(), tok.end(), '\"'), tok.end());
+			schema.relations.push_back(Schema::Relation(tok));
 		} else {
 			throw ParserError(line,
 					"Expected TableName, found '" + token + "'");

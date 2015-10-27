@@ -28,7 +28,8 @@ static std::string type(const Schema::Relation::Attribute& attr) {
    }
    throw;
 }
-//TODO: Add indexes
+
+
 std::string Schema::toString() const {
    std::stringstream out;
    out << "RELATIONS:" << std::endl;
